@@ -44,15 +44,18 @@ const deleteMovieHandler = movieId => {
   listRoot.children[movieIndex].remove();
   // listRoot.removeChild(listRoot.children[movieIndex]);
   closeMovieDeletionModal();
+  updateUI();
 };
 
 const startDeleteMovieHandler = movieId => {  
   deleteMovieModal.classList.add('visible');
   toggleBackdrop();
   const cancelDeletionButton = deleteMovieModal.querySelector('.btn--passive');
-  const confirmDeletionButton = deleteMovieModal.querySelector('.btn--danger');
+  let confirmDeletionButton = deleteMovieModal.querySelector('.btn--danger');
 
-  // confirmDeletionButton.replaceWith(confirmDeletionButton.cloneNode(true));
+  confirmDeletionButton.replaceWith(confirmDeletionButton.cloneNode(true));
+
+  confirmDeletionButton = deleteMovieModal.querySelector('.btn--danger');
 
   // confirmDeletionButton.removeEventListener('click', deleteMovieHandler.bind(null, movieId)); // will not work 😞
 
